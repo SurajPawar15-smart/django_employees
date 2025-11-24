@@ -7,7 +7,7 @@ class EmployeeAdmin(admin.ModelAdmin):
     search_fields = ['full_name', 'email']
     list_editable = ['is_active', 'salary']
     list_display_links = ['full_name', 'email']
-    ordering = ["-id"]
+    ordering = ["id"]
 
 admin.site.register(Department)
 admin.site.register(Employee, EmployeeAdmin)

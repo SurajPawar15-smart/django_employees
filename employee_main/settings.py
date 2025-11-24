@@ -55,7 +55,7 @@ ROOT_URLCONF = 'employee_main.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,7 +115,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'static/' # this is for the url prefix: http://127.0.0.1:8000/static/css/style.css
+STATIC_ROOT = BASE_DIR /'staticfiles' # for production, django will create a new folder called "staticfiles" on the root folder for production use. By running collectstatic command.
+STATICFILES_DIRS = ['employee_main/static'] # we're telling django to look into this path for any static files
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
