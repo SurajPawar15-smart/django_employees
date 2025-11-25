@@ -125,5 +125,10 @@ STATICFILES_DIRS = ['employee_main/static'] # we're telling django to look into 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Add your model field as ImageField
+# Install pillow library
+# Set MEDIA_URL and MEDIA_ROOT
+# Set urlpattern in urls.py
+
 MEDIA_URL='/media/'
 MEDIA_ROOT=BASE_DIR /'media'
