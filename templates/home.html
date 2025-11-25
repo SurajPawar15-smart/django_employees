@@ -42,8 +42,8 @@
                     <td>{{ e.is_active }}</td>
                     <td>
                         <a href="{% url 'employee_detail' e.id %}"><i class="fa fa-eye"></i></a>
-                        <a href=""><i class="fa fa-edit"></i></a>
-                        <a href=""><i class="fa fa-trash"></i></a>
+                        <a href="{% url 'edit_employee' e.id %}"><i class="fa fa-edit"></i></a>
+                        <a href="{% url 'delete_employee' e.id %}"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
             {% endfor %}
