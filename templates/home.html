@@ -7,10 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Django Employee Directory</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
     <h2>Employee Records - Tech With Suraj</h2>
+    <a href="{% url 'add_employee' %}" style="float:right;margin-right:200px;all: unset; cursor: pointer;">Add Employee</a>
+    <br>
     <table>
         <thead>
             <tr>
@@ -22,6 +25,7 @@
                 <th>Manager</th>
                 <th>Department</th>
                 <th>Active?</th>
+                <th>Active</th>
             </tr>
         </thead>
 
@@ -36,6 +40,11 @@
                     <td>{{ e.manager }}</td>
                     <td>{{ e.department }}</td>
                     <td>{{ e.is_active }}</td>
+                    <td>
+                        <a href="{% url 'employee_detail' e.id %}"><i class="fa fa-eye"></i></a>
+                        <a href=""><i class="fa fa-edit"></i></a>
+                        <a href=""><i class="fa fa-trash"></i></a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
