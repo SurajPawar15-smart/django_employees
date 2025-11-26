@@ -19,11 +19,17 @@ from django.urls import path,include
 from .import views
 from django.conf import settings
 from django.conf.urls.static import static
-
+from accounts import views as AccountViews
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('employee/',include('employees.urls'))
+    path('employee/',include('employees.urls')),
+    
+    path('register/',AccountViews.register,name='register'),
+    path('login/',AccountViews.login,name='login'),
+    path('logout/',AccountViews.logout,name='logout'),
+    
+    
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

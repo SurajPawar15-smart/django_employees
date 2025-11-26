@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from . models import Employee
 from .forms import EmployeeForm
+from django.contrib.auth.decorators import login_required,permission_required
 
 # Create your views here.
 def employee_detail(request,id):
@@ -10,7 +11,8 @@ def employee_detail(request,id):
     }
     return render(request,'employee_detail.html',context)
 
-
+@login_required
+@permission_required('employees.add_employee',raise_exception=True)
 def add_employee(request):
     if request.method=='POST':
         form=EmployeeForm(request.POST,request.FILES)
